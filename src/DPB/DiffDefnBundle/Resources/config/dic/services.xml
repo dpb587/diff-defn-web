@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dpb_diffdefn.repository_factory.class">DPB\DiffDefn\Repository\Factory</parameter>
+        <parameter key="dpb_diffdefn.aws.sqs.url" />
+        <parameter key="dpb_diffdefn.aws.s3.bucket" />
+        <parameter key="dpb_diffdefn.aws.credentials" type="collection">
+            <parameter key="key">%dpb_diffdefn.aws.credentials.key%</parameter>
+            <parameter key="secret">%dpb_diffdefn.aws.credentials.secret%</parameter>
+        </parameter>
+    </parameters>
+
+    <services>
+        <service id="dpb_diffdefn.repository_factory" class="%dpb_diffdefn.repository_factory.class%" />
+
+        <service id="dpb_diffdefn.aws.sqs" class="AmazonSQS">
+            <argument>%dpb_diffdefn.aws.credentials%</argument>
+        </service>
+
+        <service id="dpb_diffdefn.aws.s3" class="AmazonS3">
+            <argument>%dpb_diffdefn.aws.credentials%</argument>
+        </service>
+
+        <service id="dpb_diffdefn.event.commit_diff" class="DPB\DiffDefnBundle\Event\CommitDiffHandler">
+            <argument type="service" id="service_container" />
+        </service>
+    </services>
+</container>

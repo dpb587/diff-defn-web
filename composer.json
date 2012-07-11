@@ -1,0 +1,66 @@
+{
+    "name": "dpb587/diff-defn.php-web",
+    "autoload": {
+        "psr-0": { "DPB\\DiffDefnBundle": "src/" }
+    },
+    "repositories" : [
+        {
+            "type" : "vcs",
+            "url" : "git://github.com/dpb587/diff-defn.php.git"
+        },
+        {
+            "type" : "package",
+            "package" : {
+                "name": "twitter/bootstrap",
+                "version": "2.0.4",
+                "dist": {
+                    "url": "https://github.com/twitter/bootstrap/zipball/v2.0.4",
+                    "type": "zip",
+                    "reference": "ebc69356637143c938c07904d10928c11e742196"
+                },
+                "source": {
+                    "url": "git://github.com/twitter/bootstrap.git",
+                    "type": "git",
+                    "reference": "ebc69356637143c938c07904d10928c11e742196"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "2.1.*",
+        "doctrine/orm": "2.2.*",
+        "doctrine/doctrine-bundle": "dev-master",
+        "twig/extensions": "dev-master",
+        "symfony/assetic-bundle": "dev-master",
+        "symfony/swiftmailer-bundle": "dev-master",
+        "symfony/monolog-bundle": "dev-master",
+        "sensio/distribution-bundle": "dev-master",
+        "amazonwebservices/aws-sdk-for-php" : "1.5.8.1",
+        "dpb587/diff-defn.php" : "dev-master",
+        "twitter/bootstrap" : "2.0.4"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install" : "symlink"
+    }
+}

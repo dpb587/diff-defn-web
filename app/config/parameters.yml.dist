@@ -1,0 +1,6 @@
+parameters:
+    dpb_diffdefn.aws.sqs.url: ~
+    dpb_diffdefn.aws.s3.bucket: ~
+    dpb_diffdefn.aws.credentials.key: ~
+    dpb_diffdefn.aws.credentials.secret: ~
+    secret: ThisTokenIsNotSoSecretChangeIt

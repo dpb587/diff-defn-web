@@ -1,0 +1,42 @@
+{% extends 'DPBDiffDefnBundle:Layout:default.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="span7">
+                <div class="well">
+                    <p>
+                        Version control systems provide great insight into files and lines that change over time.
+                        Oftentimes, the more important piece is how application definitions change (e.g. classes,
+                        interfaces, and functions) - especially when libraries are used as third-party dependencies.
+                    </p>
+        
+                    <p>
+                        The goal of this tool is to analyze PHP code and provide a summary of code changes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="span5">
+                <form action="{{ path('dpb_diffdefn_index_compare') }}" method="GET">
+                    <label for="repo">
+                        <strong>Repository</strong>
+                        <small style="color:#909090;">&ndash; git, http</small>
+                    </label>
+                    <input id="repo" class="span5" name="repo" type="text" value="git://github.com/symfony/symfony.git">
+
+                    <label for="commit1">
+                        <strong>Compare</strong>
+                        <small style="color:#909090;">&ndash; branch, hash, tag</small>
+                    </label>
+                    <div class="form-inline">
+                        <input id="commit1" class="span2" name="commit1" type="text" value="2.0" />
+                        &hellip;
+                        <input id="commit2" class="span2" name="commit2" type="text" value="master" />
+                        <button class="btn btn-primary" type="submit">Compare</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

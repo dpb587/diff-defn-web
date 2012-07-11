@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="dpb_diffdefn_index_index" pattern="/">
+        <default key="_controller">DPBDiffDefnBundle:Index:index</default>
+    </route>
+
+    <route id="dpb_diffdefn_index_compare" pattern="/compare.{_format}">
+        <default key="_controller">DPBDiffDefnBundle:Index:compare</default>
+        <default key="_format">html</default>
+        <requirement key="_format">html|xml</requirement>
+    </route>
+
+    <route id="dpb_diffdefn_github_compare" pattern="/github/{repo}/compare/{range}">
+        <default key="_controller">DPBDiffDefnBundle:Github:compare</default>
+        <requirement key="repo">[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+?</requirement>
+    </route>
+</routes>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>dpb587/diff-defn</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        {% stylesheets '@bootstrap' %}
+            <link href="{{ asset_url }}" rel="stylesheet">
+        {% endstylesheets %}
+    
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+  </head>
+
+    <body>
+        <div class="container">
+            <header class="page-header">
+                <div class="pull-right" style="padding-top:4px;">
+                    <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=dpb587&repo=diff-defn.php&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+                    <iframe class="github-btn" src="http://markdotto.github.com/github-buttons/github-btn.html?user=dpb587&repo=diff-defn.php&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+                </div>
+
+                <h1>
+                    dpb/diff-defn
+                    <small>PHP</small>
+                </h1>
+            </header>
+
+            {% block body %}{% endblock %}
+        </div>
+    </body>
+</html>
